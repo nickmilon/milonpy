@@ -7,11 +7,10 @@ see: https://docs.python.org/2/distutils/setupscript.html
 '''
 from setuptools  import setup, find_packages
 #from __init__ import __version__ 
-__version__ ="1.0.2"
+from milonpy import __version__
 setup(
     #packages=find_packages(), #package_dir = {'milonpy': 'milonpy'}, 
-    packages=["milonpy"],  
-    package_data={'mongo_vs_es': ['sample_data/*.txt']},
+    packages=find_packages(),   
     name="milonpy",
     version=__version__,
     author="nickmilon",
