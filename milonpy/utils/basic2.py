@@ -13,11 +13,18 @@ from datetime import datetime , timedelta
 from basic import FMT_dtGen,FMT_tGen, color_txt ,color_switch_txt,dictDot 
 from time import sleep ,time,mktime
 import re
+from random import random
+
  
 def re_is_sameLen(txt,rexp):return len(txt)==len(rexp.findall(txt))
 def re_is_same(txt,rexp):return txt==u''.join(rexp.findall(txt))
 def re_diff(txt,rexp):return ''.join(list(set([c for c in txt]) - set(rexp.findall(txt))))
-#re_gr=re.compile(ur'[\u03AC-\u03CE]|[;\s]',            re.IGNORECASE| re.VERBOSE| re.UNICODE |re.MULTILINE) 
+#re_gr=re.compile(ur'[\u03AC-\u03CE]|[;\s]',            re.IGNORECASE| re.VERBOSE| re.UNICODE |re.MULTILINE)
+
+def lst_randomize(lst):
+    "returns list in random order" 
+    
+    return [i[1] for i in  [[random(),i] for i in sorted(lst)] ] 
 def time_seconds_since_epoch(dt=None):
     if dt is None:dt=datetime.utcnow()
     return mktime(dt.timetuple())+1e-6*dt.microsecond   
